@@ -9,20 +9,8 @@ import { useStore } from "@/store/store";
 
 export const useAnimatedChangeColor = () => {
   const currentIndex = useStore((state) => state.currentIndex);
-  // const mainColors = useStore((state) => state.mainColors);
-  // const secondColors = useStore((state) => state.secondColors);
 
   const colors = useStore((state) => state.colors);
-
-  // const mainColor =
-  //   currentIndex !== null && colors[currentIndex]?.mainColor !== undefined
-  //     ? colors[currentIndex].mainColor
-  //     : "#fff";
-
-  // const secondColor =
-  //   currentIndex !== null && colors[currentIndex]?.secondColor !== undefined
-  //     ? colors[currentIndex].secondColor
-  //     : "#000";
 
   const mainColor =
     colors[currentIndex]?.mainColor !== undefined

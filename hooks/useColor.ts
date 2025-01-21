@@ -31,7 +31,6 @@ const isContrastAcceptable = (bgColor: string, textColor: string): boolean => {
 
 export const useColor = () => {
   const [matchedColors, setMatchedColors] = useState<MatchedColors>();
-  // const [contrastingColor, setContrastingColor] = useState<string>();
 
   const generateRandomColor = (): string => {
     const hexChars = "0123456789ABCDEF";
@@ -47,7 +46,6 @@ export const useColor = () => {
 
   const generateNewColor = useCallback(() => {
     const newColor = generateRandomColor();
-    // setMatchedColors({mainColor: newColor});
 
     let newContrastingColor;
     do {
