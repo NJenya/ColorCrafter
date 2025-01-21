@@ -1,11 +1,10 @@
 import { Modal, View, Text, StyleSheet } from "react-native";
-import * as Clipboard from "expo-clipboard";
-import Toast from "react-native-toast-message";
 
 import { useStore } from "@/store/store";
 import { HEIGHT, WIDTH } from "@/utils/constants";
 import { Colors } from "@/theme/Colors";
 import { AppButton } from "@/components/AppButton";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
 export const CopyColorsModal = () => {
   const isCopyColorModalVisible = useStore(
@@ -21,18 +20,11 @@ export const CopyColorsModal = () => {
     mainColor: "#000",
     secondColor: "#fff",
   };
+  const { copyToClipboard } = useCopyToClipboard();
 
-  const copyToClipboard = async (color: string) => {
-    await Clipboard.setStringAsync(color);
+  const pressCopyButton = (color: string) => {
+    copyToClipboard(color);
     setIsCopyColorModalVisible();
-    Toast.show({
-      type: "success",
-      text1: "Copied!",
-      text2: "You amaizing color has been copied to clipboard.",
-      visibilityTime: 3000,
-      position: "bottom",
-      bottomOffset: 100,
-    });
   };
 
   return (
@@ -55,7 +47,7 @@ export const CopyColorsModal = () => {
                 ]}
                 title={`Copy Main Color ${mainColor}`}
                 titleStyle={[styles.buttonTitle, { color: secondColor }]}
-                pressButton={() => copyToClipboard(mainColor)}
+                pressButton={() => pressCopyButton(mainColor)}
               />
               <AppButton
                 style={[
@@ -66,7 +58,7 @@ export const CopyColorsModal = () => {
                 ]}
                 title={`Copy Matched Color ${secondColor}`}
                 titleStyle={[styles.buttonTitle, { color: mainColor }]}
-                pressButton={() => copyToClipboard(secondColor)}
+                pressButton={() => pressCopyButton(secondColor)}
               />
               <AppButton
                 style={[styles.button, styles.closeButton]}
