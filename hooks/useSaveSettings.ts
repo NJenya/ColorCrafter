@@ -25,7 +25,6 @@ export const useSaveSettingststs = () => {
   const storeSettings = async () => {
     try {
       if (settingsRef.current) {
-        console.log("Start saving");
         const jsonValue = JSON.stringify(settingsRef.current);
         await AsyncStorage.setItem(SETTINGS_KEY, jsonValue);
         console.log("Settings stored successfully!");
