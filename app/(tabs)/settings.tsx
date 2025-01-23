@@ -1,11 +1,23 @@
 import { Text, View, StyleSheet } from "react-native";
 
 import { Colors } from "@/theme/Colors";
+import { PADDING } from "@/utils/constants";
+import { GeneratingModeButton } from "@/components/GeneratingModeButton";
+import { ExcludedColors } from "@/components/ExcludedColors";
 
 export default function SettingsScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Settings screen</Text>
+      <Text style={styles.title}>Generating Mode</Text>
+      <Text style={styles.descriptionText}>
+        Choose a type for color generation
+      </Text>
+      <GeneratingModeButton />
+      <Text style={styles.title}>Accessibility</Text>
+      <Text style={styles.descriptionText}>
+        You can exclude a specific color from the generation process if needed.
+      </Text>
+      <ExcludedColors />
     </View>
   );
 }
@@ -13,12 +25,20 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: Colors.primary,
+    paddingHorizontal: PADDING,
   },
-  text: {
+  title: {
     color: Colors.white,
-    fontSize: 20,
+    fontSize: 24,
+    borderBottomWidth: 1,
+    paddingVertical: 16,
+    borderColor: Colors.white,
+  },
+  descriptionText: {
+    fontSize: 12,
+    lineHeight: 20,
+    color: Colors.white,
+    paddingVertical: 12,
   },
 });

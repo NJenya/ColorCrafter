@@ -1,5 +1,7 @@
 import { create } from "zustand";
-import { StoreType } from "./types";
+
+import { OffColorsType, StoreType } from "@/store/types";
+import { HEX } from "@/utils/constants";
 
 export const useStore = create<StoreType>((set) => ({
   currentIndex: 0,
@@ -28,4 +30,18 @@ export const useStore = create<StoreType>((set) => ({
     set((state) => ({
       isCopyColorModalVisible: !state.isCopyColorModalVisible,
     })),
+
+  generatingMode: HEX,
+  setGeneratingMode: (mode) => set(() => ({ generatingMode: mode })),
+
+  offColors: {
+    Red: false,
+    Green: false,
+    Blue: false,
+  },
+  turnOffColor: (color: keyof OffColorsType) =>
+    set((state) => ({
+      offColors: { ...state.offColors, [color]: !state.offColors[color] },
+    })),
+  setOffColors: (colors: OffColorsType) => set(() => ({ offColors: colors })),
 }));

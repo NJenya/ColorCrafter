@@ -1,15 +1,18 @@
 import { Tabs } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { Colors } from "@/theme/Colors";
+import { HEIGHT } from "@/utils/constants";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors.selected,
-        tabBarStyle: { backgroundColor: Colors.primary },
+        tabBarStyle: {
+          backgroundColor: Colors.primary,
+        },
         headerStyle: { backgroundColor: Colors.primary },
         headerShadowVisible: false,
         headerTintColor: Colors.selected,

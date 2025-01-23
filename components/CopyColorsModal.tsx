@@ -17,8 +17,8 @@ export const CopyColorsModal = () => {
   const colors = useStore((state) => state.colors);
 
   const { mainColor, secondColor } = colors[currentIndex] || {
-    mainColor: "#000",
-    secondColor: "#fff",
+    mainColor: Colors.primary,
+    secondColor: Colors.selected,
   };
   const { copyToClipboard } = useCopyToClipboard();
 
