@@ -148,7 +148,6 @@ const generateRandomHexColor = (offColors: {
     if (i === 2 && offColors.Green) component = 0; // G
     if (i === 4 && offColors.Blue) component = 0; // B
 
-    // Якщо тільки один колір дозволений, інші компоненти ставимо в нуль
     if (isOnlyOneColorAllowed) {
       if (i === 0 && !offColors.Red) component = 255; // Red
       if (i === 2 && !offColors.Green) component = 255; // Green
@@ -199,7 +198,7 @@ export const useColor = () => {
         ? () => generateRandomHexColor(offColors)
         : () => generateRandomRgbColor(offColors);
 
-    const MAX_ATTEMPTS = 50; // Ліміт спроб генерації
+    const MAX_ATTEMPTS = 50;
     let attempts = 0;
 
     let newColor, newContrastingColor;
