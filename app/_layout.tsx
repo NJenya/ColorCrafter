@@ -16,7 +16,7 @@ export default function RootLayout() {
     const appStateListener = AppState.addEventListener(
       "change",
       (nextAppState) => {
-        if (nextAppState === "inactive") {
+        if (nextAppState === "inactive" || nextAppState === "background") {
           storeSettings();
         }
         appStateRef.current = nextAppState;
