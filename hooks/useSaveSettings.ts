@@ -11,10 +11,13 @@ type SettingsType = {
 };
 
 export const useSaveSettingststs = () => {
-  const generatingMode = useStore((state) => state.generatingMode);
-  const offColors = useStore((state) => state.offColors);
-  const setGeneratingMode = useStore((state) => state.setGeneratingMode);
-  const setOffColors = useStore((state) => state.setOffColors);
+  const { generatingMode, offColors, setGeneratingMode, setOffColors } =
+    useStore((state) => ({
+      generatingMode: state.generatingMode,
+      offColors: state.offColors,
+      setGeneratingMode: state.setGeneratingMode,
+      setOffColors: state.setOffColors,
+    }));
 
   const settingsRef = useRef<SettingsType>();
 

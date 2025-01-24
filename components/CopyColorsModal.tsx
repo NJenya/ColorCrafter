@@ -7,14 +7,17 @@ import { AppButton } from "@/components/AppButton";
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
 export const CopyColorsModal = () => {
-  const isCopyColorModalVisible = useStore(
-    (state) => state.isCopyColorModalVisible
-  );
-  const setIsCopyColorModalVisible = useStore(
-    (state) => state.setIsCopyColorModalVisible
-  );
-  const currentIndex = useStore((state) => state.currentIndex);
-  const colors = useStore((state) => state.colors);
+  const {
+    isCopyColorModalVisible,
+    setIsCopyColorModalVisible,
+    currentIndex,
+    colors,
+  } = useStore((state) => ({
+    isCopyColorModalVisible: state.isCopyColorModalVisible,
+    setIsCopyColorModalVisible: state.setIsCopyColorModalVisible,
+    currentIndex: state.currentIndex,
+    colors: state.colors,
+  }));
 
   const { mainColor, secondColor } = colors[currentIndex] || {
     mainColor: Colors.primary,
