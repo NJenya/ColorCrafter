@@ -3,6 +3,12 @@ type Colors = {
   secondColor: string;
 };
 
+export type OffColorsType = {
+  Red: boolean;
+  Green: boolean;
+  Blue: boolean;
+};
+
 export type StoreType = {
   currentIndex: number;
   increaseCurrentIndex: () => void;
@@ -13,4 +19,11 @@ export type StoreType = {
 
   isCopyColorModalVisible: boolean;
   setIsCopyColorModalVisible: () => void;
+
+  generatingMode: string;
+  setGeneratingMode: (mode: string) => void;
+
+  offColors: OffColorsType;
+  turnOffColor: (color: keyof OffColorsType) => void;
+  setOffColors: (colors: OffColorsType) => void;
 };
